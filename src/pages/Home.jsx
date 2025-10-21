@@ -2,8 +2,8 @@ import Typewriter from 'typewriter-effect';
 
 function Home() {
     return (
-        <div className="home-main">
-            <img src="/home_person.png" alt="home-page-image" />
+        <div className="home-main" >
+            <img src={`${import.meta.env.BASE_URL}home_person.png`} alt="home-page-image" />
             <div className="home-text">
                 <Typewriter
                     onInit={(typewriter) => {
