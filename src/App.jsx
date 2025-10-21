@@ -16,7 +16,7 @@ function App() {
                 <Link className="logo" to="/" />
                 <NavBar />
             </header>
-            <Routes>
+            <Routes basename="/react-project">
                 <Route path="/" element={<Home />} /> 
                 <Route path="/about" element={<About />} />
                 <Route path="/portfolio" element={<Portfolio />} />
