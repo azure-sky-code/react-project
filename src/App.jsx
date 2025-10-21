@@ -11,12 +11,12 @@ import './App.css'
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/react-project">
             <header>
                 <Link className="logo" to="/" />
                 <NavBar />
             </header>
-            <Routes basename="/react-project">
+            <Routes>
                 <Route path="/" element={<Home />} /> 
                 <Route path="/about" element={<About />} />
                 <Route path="/portfolio" element={<Portfolio />} />
