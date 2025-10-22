@@ -1,0 +1,128 @@
+header {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    /* box-sizing: border-box; */
+    padding: 1rem 1rem 2rem;
+    /* width: 100%; */
+}
+.logo {
+    background: url('/logo.png') no-repeat 50% 50% / contain;
+    width: 8rem;
+    aspect-ratio: 37 / 25;
+    transition: filter .5s ease-out;
+}
+.logo:active,
+.logo:hover {
+    filter: drop-shadow(0 0 10px rgba(228, 226, 157, 0.8));
+}
+.header-nav {
+    display: flex;
+    gap: 1.3rem;
+}
+.header-nav a {
+    color: #FFF;
+    font-size: 1.8rem;
+    font-family: 'Fusion Pixel', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    transition: text-shadow .3s ease-out;
+}
+.header-nav a:active,
+.header-nav a:hover {
+    text-shadow: -1px -1px 0 #414141, 1px -1px 0 #414141, -1px 1px 0 #414141, 3px 2px 0 #414141;
+}
+
+/* 首頁 */
+.home-main {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    align-items: center;
+}
+.home-text {
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 3%;
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    width: 90%;
+    color: #394C59;
+    font-size: 1.3rem;
+    font-family: 'Fusion Pixel', sans-serif;
+    line-height: 2rem;
+    text-align: center;
+    /* word-break: keep-all;
+    line-break: loose; */
+}
+.home-main img {
+    width: 16rem;
+    max-width: 460px;
+    animation: loopFloat 2s ease-in-out infinite;
+}
+
+@media screen and (min-width: 480px) {
+    header {
+        padding: 1rem 1.2rem;
+    }
+    .header-nav {
+        gap: 1.6rem;
+    }
+    .header-nav a {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+        padding: 1rem 1.5rem;
+    }
+    .logo {
+        width: 6rem;
+    }
+    .header-nav a {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .home-main {
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 1%;
+    }
+    .home-text {
+        width: 58%;
+        text-align: left;
+    }
+    .home-main img {
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .home-main {
+        gap: 3%;
+    }
+    .home-text {
+        width: 60%;
+    }
+    .home-main img {
+        width: 30%;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    header {
+        padding: 1.5rem 2rem;
+    }
+}

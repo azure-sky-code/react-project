@@ -7,7 +7,7 @@ import Work1 from './pages/portfolio/Work1';
 import Work2 from './pages/portfolio/Work2';
 import Work3 from './pages/portfolio/Work3';
 import Contact from './pages/Contact'
-import './App.css'
+import './app.css'
 
 function App() {
     return (
