@@ -55,10 +55,8 @@ header {
     color: #394C59;
     font-size: 1.3rem;
     font-family: 'Fusion Pixel', sans-serif;
-    line-height: 2rem;
+    line-height: 2.3rem;
     text-align: center;
-    /* word-break: keep-all;
-    line-break: loose; */
 }
 .home-main img {
     width: 16rem;
@@ -75,6 +73,12 @@ header {
     }
     .header-nav a {
         font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .home-text {
+        line-height: 2.1rem;
     }
 }
 
@@ -110,13 +114,13 @@ header {
 
 @media screen and (min-width: 1024px) {
     .home-main {
-        gap: 3%;
+        gap: 5%;
     }
     .home-text {
         width: 60%;
     }
     .home-main img {
-        width: 30%;
+        width: 28%;
     }
 }
 

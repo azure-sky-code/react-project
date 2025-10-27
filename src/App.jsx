@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import NavBar from './components/NavBar'
-import Home from './pages/Home'
-import About from './pages/About'
-import Portfolio from './pages/Portfolio'
-import Work1 from './pages/portfolio/Work1';
-import Work2 from './pages/portfolio/Work2';
-import Work3 from './pages/portfolio/Work3';
-import Contact from './pages/Contact'
-import './app.css'
+import NavBar from '@/components/NavBar'
+import Home from '@/pages/Home'
+import About from '@/pages/About'
+import Portfolio from '@/pages/Portfolio'
+import Work1 from '@/pages/portfolio/Work1';
+import Work2 from '@/pages/portfolio/Work2';
+import Work3 from '@/pages/portfolio/Work3';
+import Contact from '@/pages/Contact'
+import '@/app.css'
 
 function App() {
     return (
