@@ -2,13 +2,11 @@ import Typewriter from 'typewriter-effect';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 function Home() {
-    // 依視窗寬度做排版控制
     const baseWidth = useMediaQuery('(min-width: 641px)');
     const mediumWidth = useMediaQuery('(min-width: 769px)');
     const largeWidth = useMediaQuery('(min-width: 1025px)');
 
-    // 打字機輸出字串
-    const getContent = () => `
+    const getContent = (): string => `
         你好，我是 Wendy，${!largeWidth ? '<br>' : ''}
         是名「前端訓練家」！<br><br>
         歡迎來到我的冒險回憶島，<br>
@@ -18,8 +16,7 @@ function Home() {
         且對我的旅程有興趣，${!baseWidth ? '<br>' : ''}歡迎與我聯絡！
     `.trim();
 
-    // 以 <br><br> 為界 區分段落
-    const getSegments = (text) =>
+    const getSegments = (text: string): string[] =>
         text
           .split(/<br><br>\s*/i)
           .map((s) => s.trim())
@@ -28,11 +25,10 @@ function Home() {
     const content = getContent();
     const segments = getSegments(content);
 
-    const handleTypewriter = (typewriter) => {
+    const handleTypewriter = (typewriter: any) => {
         let chain = typewriter;
 
         if (!mediumWidth) {
-            // 分段打字 + 清空
             segments.forEach((segment, i) => {
                 const isLast = i === segments.length - 1;
                 chain = chain.typeString(segment);
@@ -46,7 +42,7 @@ function Home() {
 
         chain
             .callFunction(() => {
-            const cursor = document.querySelector('.Typewriter__cursor');
+            const cursor = document.querySelector('.Typewriter__cursor') as HTMLElement | null;
                 if (cursor) cursor.style.display = 'none';
             })
             .start();
@@ -66,4 +62,3 @@ function Home() {
 }
   
 export default Home;
-    

@@ -3,44 +3,37 @@ import { vi } from 'vitest'
 import { useMediaQuery } from './useMediaQuery'
 
 describe('useMediaQuery', () => {
-    let listeners = []
+    let listeners: Array<() => void> = []
     let currentMatches = false
-    let mediaQueryListMock
+    let mediaQueryListMock: any
 
     beforeEach(() => {
         listeners = []
         currentMatches = false
 
         mediaQueryListMock = {
-            // 使用 getter 確保每次 Hook 訪問時都能讀取到最新的 currentMatches
             get matches() {
                 return currentMatches
             },
             media: '',
-            // 主要路徑：新 API addEventListener/removeEventListener
-            addEventListener: (event, callback) => {
+            addEventListener: (event: string, callback: () => void) => {
                 if (event === 'change') listeners.push(callback)
             },
             removeEventListener: vi.fn(),
-            // 舊 API：在需要時由測試替換成 addListener/removeListener
-            addListener: undefined,
-            removeListener: undefined,
+            addListener: undefined as ((cb: () => void) => void) | undefined,
+            removeListener: undefined as ((cb: () => void) => void) | undefined,
             dispatchEvent: () => {
-                // const event = { matches: currentMatches }
-                // listeners.forEach((cb) => cb(event))
                 listeners.forEach((cb) => cb())
             },
         }
 
-        // 模擬全局 matchMedia 函數
-        vi.stubGlobal('matchMedia', (query) => {
+        vi.stubGlobal('matchMedia', (query: string) => {
             mediaQueryListMock.media = query
             return mediaQueryListMock
         })
     })
 
     afterEach(() => {
-        // 在每個測試後，恢復所有被 vi.stubGlobal 替換的全局變數
         vi.unstubAllGlobals()
     })
 
@@ -78,13 +71,10 @@ describe('useMediaQuery', () => {
         currentMatches = false
         const { unmount } = renderHook(() => useMediaQuery('(min-width: 600px)'))
         
-        // 確保初始時未被調用
         expect(mediaQueryListMock.removeEventListener).not.toHaveBeenCalled()
         
-        // 卸載 Hook
         unmount()
         
-        // 斷言 Hook 的清理函數被正確執行
         expect(mediaQueryListMock.removeEventListener).toHaveBeenCalledWith(
             'change',
             expect.any(Function)
@@ -92,10 +82,9 @@ describe('useMediaQuery', () => {
     })
 
     it('兼容舊版 addListener/removeListener', () => {
-        // 將 mock 切換成舊 API 模式
         mediaQueryListMock.addEventListener = undefined
         mediaQueryListMock.removeEventListener = undefined
-        mediaQueryListMock.addListener = (cb) => listeners.push(cb)
+        mediaQueryListMock.addListener = (cb: () => void) => listeners.push(cb)
         mediaQueryListMock.removeListener = vi.fn()
 
         currentMatches = false
@@ -111,4 +100,4 @@ describe('useMediaQuery', () => {
         unmount()
         expect(mediaQueryListMock.removeListener).toHaveBeenCalledWith(expect.any(Function))
     })
-})
+}) 

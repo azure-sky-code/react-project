@@ -34,4 +34,4 @@ export default [
             'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
         },
     },
-])
+];

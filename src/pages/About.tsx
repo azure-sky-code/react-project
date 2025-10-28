@@ -1,4 +1,4 @@
-function Work3() {
+function About() {
     return (
         <div>
 
@@ -6,4 +6,4 @@ function Work3() {
     );
 }
   
-export default Work3;
+export default About;

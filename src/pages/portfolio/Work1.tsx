@@ -1,4 +1,4 @@
-function Portfolio() {
+function Work1() {
     return (
         <div>
 
@@ -6,4 +6,4 @@ function Portfolio() {
     );
 }
   
-export default Portfolio;
+export default Work1;
