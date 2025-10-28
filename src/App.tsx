@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import NavBar from '@/components/NavBar'
-import Home from '@/pages/Home'
-import About from '@/pages/About'
-import Portfolio from '@/pages/Portfolio'
-import Work1 from '@/pages/portfolio/Work1';
-import Work2 from '@/pages/portfolio/Work2';
-import Work3 from '@/pages/portfolio/Work3';
-import Contact from '@/pages/Contact'
+import { lazy, Suspense } from 'react';
+const Home = lazy(() => import('@/pages/Home'))
+const About = lazy(() => import('@/pages/About'))
+const Portfolio = lazy(() => import('@/pages/Portfolio'))
+const Work1 = lazy(() => import('@/pages/portfolio/Work1'))
+const Work2 = lazy(() => import('@/pages/portfolio/Work2'))
+const Work3 = lazy(() => import('@/pages/portfolio/Work3'))
+const Contact = lazy(() => import('@/pages/Contact'))
 import '@/app.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Link className="logo" to="/" />
                 <NavBar />
             </header>
+            <Suspense fallback={<div />}>
             <Routes>
                 <Route path="/" element={<Home />} /> 
                 <Route path="/about" element={<About />} />
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/portfolio/work3" element={<Work3 />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
+            </Suspense>
         </BrowserRouter>
     )
 }

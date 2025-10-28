@@ -1,4 +1,5 @@
-import Typewriter from 'typewriter-effect';
+import { lazy, Suspense } from 'react';
+const Typewriter = lazy(() => import('typewriter-effect'));
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 function Home() {
@@ -51,9 +52,12 @@ function Home() {
     return (
         <div className="home-main" >
             <div className="home-text">
-                <Typewriter onInit={handleTypewriter} />
+                <Suspense fallback={null}>
+                    <Typewriter onInit={handleTypewriter} />
+                </Suspense>
             </div>
             <img
+                loading="lazy"
                 src={`${import.meta.env.BASE_URL}home_person.png`}
                 alt="home-page-image"
             />
