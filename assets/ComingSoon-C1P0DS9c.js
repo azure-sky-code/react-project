@@ -1,0 +1,1 @@
+import{j as o}from"./index-uecx1bNX.js";const i=({image:s="/react-project//wait.png",message:n="此頁面建置中，敬請期待！"})=>o.jsxs("div",{className:"coming-soon",children:[o.jsx("img",{loading:"lazy",src:s,alt:"建置中"}),o.jsx("p",{children:n})]});export{i as C};
