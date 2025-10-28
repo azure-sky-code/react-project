@@ -1,8 +1,8 @@
+import ComingSoon from '@/components/ComingSoon';
+
 function Portfolio() {
     return (
-        <div>
-
-        </div>
+        <ComingSoon />
     );
 }
   

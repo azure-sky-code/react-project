@@ -1,8 +1,8 @@
+import ComingSoon from '@/components/ComingSoon';
+
 function About() {
     return (
-        <div>
-
-        </div>
+        <ComingSoon />
     );
 }
   

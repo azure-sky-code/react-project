@@ -34,6 +34,7 @@ header {
     text-decoration: none;
     transition: text-shadow .3s ease-out;
 }
+.header-nav a.active,
 .header-nav a:active,
 .header-nav a:hover {
     text-shadow: -1px -1px 0 #414141, 1px -1px 0 #414141, -1px 1px 0 #414141, 3px 2px 0 #414141;
@@ -64,6 +65,20 @@ header {
     width: 16rem;
     max-width: 460px;
     animation: loopFloat 2s ease-in-out infinite;
+}
+
+.coming-soon {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.coming-soon p {
+    color: #323232;
+    font-size: 1.5rem;
+    font-family: 'Fusion Pixel', sans-serif;
+    text-shadow: -2px -2px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 3px 2px 0 #FFF;
+
 }
 
 /* 響應式斷點：小型裝置 */
