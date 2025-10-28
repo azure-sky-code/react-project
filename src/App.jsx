@@ -11,6 +11,7 @@ import '@/app.css'
 
 function App() {
     return (
+        // basename 須與 Vite 設定的 base 一致
         <BrowserRouter basename="/react-project">
             <header>
                 <Link className="logo" to="/" />

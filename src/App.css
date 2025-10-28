@@ -1,3 +1,6 @@
+/*
+ * 全站 Header 與導覽
+ */
 header {
     /* position: fixed;
     top: 0;
@@ -10,6 +13,7 @@ header {
     padding: 1rem 1rem 2rem;
     /* width: 100%; */
 }
+
 .logo {
     background: url('/logo.png') no-repeat 50% 50% / contain;
     width: 8rem;
@@ -64,6 +68,7 @@ header {
     animation: loopFloat 2s ease-in-out infinite;
 }
 
+/* 響應式斷點：小型裝置 */
 @media screen and (min-width: 480px) {
     header {
         padding: 1rem 1.2rem;
@@ -76,12 +81,14 @@ header {
     }
 }
 
+/* 響應式斷點：手機橫向/小平板 */
 @media screen and (min-width: 640px) {
     .home-text {
         line-height: 2.1rem;
     }
 }
 
+/* 響應式斷點：平板尺寸 */
 @media screen and (min-width: 768px) {
     header {
         flex-direction: row;
@@ -97,6 +104,7 @@ header {
     }
 }
 
+/* 響應式斷點：桌機（小） */
 @media screen and (min-width: 960px) {
     .home-main {
         flex-direction: row-reverse;
@@ -112,6 +120,7 @@ header {
     }
 }
 
+/* 響應式斷點：桌機（中） */
 @media screen and (min-width: 1024px) {
     .home-main {
         gap: 5%;
@@ -125,6 +134,7 @@ header {
 }
 
 
+/* 響應式斷點：桌機（大） */
 @media screen and (min-width: 1440px) {
     header {
         padding: 1.5rem 2rem;

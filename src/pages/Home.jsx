@@ -2,10 +2,12 @@ import Typewriter from 'typewriter-effect';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 function Home() {
+    // 依視窗寬度做排版控制
     const baseWidth = useMediaQuery('(min-width: 641px)');
     const mediumWidth = useMediaQuery('(min-width: 769px)');
     const largeWidth = useMediaQuery('(min-width: 1025px)');
 
+    // 打字機輸出字串
     const getContent = () => `
         你好，我是 Wendy，${!largeWidth ? '<br>' : ''}
         是名「前端訓練家」！<br><br>
@@ -16,6 +18,7 @@ function Home() {
         且對我的旅程有興趣，${!baseWidth ? '<br>' : ''}歡迎與我聯絡！
     `.trim();
 
+    // 以 <br><br> 為界 區分段落
     const getSegments = (text) =>
         text
           .split(/<br><br>\s*/i)

@@ -1,7 +1,12 @@
+/*
+ * 全站 Reset 與基礎樣式
+ * - 背景圖使用固定路徑，與 Vite base 相容（/react-project/ 會自動前綴）
+ */
 :root {
     background: #68b4F0 url('/sky.jpg') no-repeat 50% 100%;
 }
 
+/* 標準化盒模型，避免 padding/border 影響寬高計算 */
 *,
 *::before,
 *::after {
@@ -23,6 +28,7 @@ dd {
     outline: none;
 }
 
+/* 根字體隨斷點縮放，搭配 rem 取得一致比例 */
 html {
     font-size: 16px;
 
@@ -40,18 +46,19 @@ html {
     }
 }
 
+/* 讓背景圖至少覆蓋滿版高度 */
 body {
     min-height: 100vh;
 }
 
-/* 像素字 */
+/* 像素字：使用本地字型檔，避免首次渲染空白，設定 swap */
 @font-face {
     font-family: 'Fusion Pixel'; 
     src: url('/fonts/fusion-pixel-10px-proportional-zh_hant.otf.woff2') format('woff2'); 
     font-display: swap; 
 }
 
-/* 漂浮動畫 */
+/* 漂浮動畫（首頁人物圖用） */
 @keyframes loopFloat {
     0% {
         transform: translateY(0);
